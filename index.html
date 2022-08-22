@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <title>Vite App-大屏可视化</title>
+    <script>
+      const deviceWidth = document.documentElement.clientWidth
+      const deviceHeight = document.documentElement.clientHeight
+
+      const pageWidth = deviceWidth / deviceHeight > 16 / 9 ? deviceHeight * (16 / 9) : deviceWidth
+      const pageHeight = pageWidth / (16/9)
+
+      const string = `<style>html{
+        font-size: ${pageWidth / 100}px;
+      }</style>`
+      document.write(string)
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const app = document.querySelector('#app')
+      app.style.width = pageWidth + 'px'
+      app.style.height = pageHeight + 'px'
+      app.style.marginTop = (deviceHeight - pageHeight) / 2 + 'px'
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
