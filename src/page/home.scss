@@ -124,8 +124,14 @@
           width: px(18); height: px(12);
           background: red; margin: 0 px(10);
         }
-        .first {}
-        .second {}
+        .first {
+          background: rgb(2,0,36);
+          background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(31,51,250,1) 0%, rgba(8,155,253,1) 100%);
+        }
+        .second {
+          background: rgb(2,0,36);
+          background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(186,39,233,1) 0%, rgba(98,109,222,1) 100%);
+        }
       }
     }
   }

@@ -38,14 +38,46 @@ onMounted(()=>{
     },
     series: [
       {
-        name: '破案排名1',
-        type: 'bar',
-        data: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-      },
-      {
         name: '破案排名2',
         type: 'bar',
-        data: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+        data: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+        itemStyle: {
+          color: {
+            type: 'linear', // 线性渐变
+            x: 0,
+            y: 0,
+            x2: 1,
+            y2: 0,
+            colorStops: [{
+              offset: 0,
+              color: '#1f33fa' // 0%处的颜色
+            }, {
+              offset: 1,
+              color: '#089bfd' // 100%处的颜色
+            }]
+          }
+        }
+      },
+      {
+        name: '破案排名1',
+        type: 'bar',
+        data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        itemStyle: {
+          color: {
+            type: 'linear', // 线性渐变
+            x: 0,
+            y: 0,
+            x2: 1,
+            y2: 0,
+            colorStops: [{
+              offset: 0,
+              color: '#ba27e9' // 0%处的颜色
+            }, {
+              offset: 1,
+              color: '#626dde' // 100%处的颜色
+            }]
+          }
+        }
       }
     ]
   }))
