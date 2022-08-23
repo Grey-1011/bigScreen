@@ -11,6 +11,7 @@
       <section class="section4 bordered"></section>
       <section class="section5 bordered"></section>
     </main>
+    <footer></footer>
   </div>
 </template>
 
