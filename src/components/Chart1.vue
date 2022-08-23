@@ -8,22 +8,17 @@
 <script lang="ts" setup>
 import {onMounted, ref} from 'vue';
 import * as echarts from 'echarts';
-import "../page/home.scss"
-const px = (n: number) => n / 2420 * (window as any).pageWidth;
+import {px} from '../shared/px';
+import {baseEchartOptions} from '../shared/base-echart-options';
+
 
 const divRef = ref()
 onMounted(()=>{ // 挂载之后拿到  .chart 的 div
   console.log(divRef.value)
-  // 基于准备好的dom，初始化echarts实例
   const myChart = echarts.init(divRef.value);
-// 绘制图表
+
   myChart.setOption({
-    textStyle: {
-      fontSize: px(12),
-      color: '#79839E'
-    },
-    title: {show: false},
-    legend:{show: false},
+    ...baseEchartOptions,
     xAxis: {
       data: ['城关区', '七里河区', '西固区', '安宁区', '红谷区', '永登区','皋兰区','榆中区', '兰州新区'],
       axisTick: {show: false},
@@ -44,12 +39,6 @@ onMounted(()=>{ // 挂载之后拿到  .chart 的 div
           }
         }
       }
-    },
-    grid: {
-      x: px(40),
-      y: px(40),
-      x2: px(40),
-      y2: px(40)
     },
     yAxis: {
       splitLine: {show: false},
