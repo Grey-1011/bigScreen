@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
+<!--    <link rel="icon" href="/favicon.ico" />-->
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
     <title>Vite App-大屏可视化</title>
@@ -10,7 +10,7 @@
       const deviceWidth = document.documentElement.clientWidth
       const deviceHeight = document.documentElement.clientHeight
 
-      const pageWidth = deviceWidth / deviceHeight > 16 / 9 ? deviceHeight * (16 / 9) : deviceWidth
+      window.pageWidth = deviceWidth / deviceHeight > 16 / 9 ? deviceHeight * (16 / 9) : deviceWidth
       const pageHeight = pageWidth / (16/9)
 
       const string = `<style>html{

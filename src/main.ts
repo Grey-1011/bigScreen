@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import Home from './components/Home.vue'
+import Home from './page/Home.vue'
 import './shared/style.scss'
 
 // createApp(App).mount('#app')
