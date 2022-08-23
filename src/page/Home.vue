@@ -6,7 +6,9 @@
         <Chart1/>
         <Chart2/>
       </section>
-      <section class="section2 bordered"></section>
+      <section class="section2">
+        <Chart3/>
+      </section>
       <section class="section3 bordered"></section>
       <section class="section4 bordered"></section>
       <section class="section5 bordered"></section>
@@ -19,6 +21,7 @@
 import './home.scss';
 import Chart1 from '../components/Chart1.vue';
 import Chart2 from '../components/Chart2.vue';
+import Chart3 from '../components/Chart3.vue';
 </script>
 
 <style lang="scss">
