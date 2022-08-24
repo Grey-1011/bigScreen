@@ -26,7 +26,7 @@
       </section>
       <section class="section5">
         <div class="bordered 案发类型 row1">
-          <h2>兰州市案发类型统计</h2>
+          <h2>案发类型统计</h2>
           <div class="charts">
             <Chart10/>
             <Chart11/>
@@ -64,6 +64,9 @@ import Chart8 from '../components/Chart8.vue';
 import Chart9 from '../components/Chart9.vue';
 import Chart10 from '../components/Chart10.vue';
 import Chart11 from '../components/Chart11.vue';
+import Chart12 from '../components/Chart12.vue';
+import Chart13 from '../components/Chart13.vue';
+import Chart14 from '../components/Chart14.vue';
 
 </script>
 
