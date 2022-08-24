@@ -96,7 +96,7 @@ onMounted(() => {
     .legend {
       position: absolute;top: px(40);left: px(20);display: flex;
       align-items: center;
-      font-size: px(22); padding: px(20) px(10) px(20) 0;
+      font-size: px(20); padding: px(15) px(10) px(20) 0;
       border-radius: 0;
       .icon {
         margin: 0 px(10);
