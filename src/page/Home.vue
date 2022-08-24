@@ -13,7 +13,9 @@
       <section class="section3 bordered">
         <Chart5/>
       </section>
-      <section class="section4 bordered"></section>
+      <section class="section4">
+        <Chart6/>
+      </section>
       <section class="section5 bordered"></section>
     </main>
     <footer></footer>
@@ -27,6 +29,7 @@ import Chart2 from '../components/Chart2.vue';
 import Chart3 from '../components/Chart3.vue';
 import Chart4 from '../components/Chart4.vue';
 import Chart5 from '../components/Chart5.vue';
+import Chart6 from '../components/Chart6.vue';
 </script>
 
 <style lang="scss">
