@@ -2,14 +2,14 @@
   <div class="年龄段-图1">
     <div class="chart">
       <div ref="divRef" class="main" />
-      </div>
-      <div class="legend">
-        <span class="one"/>刑事
-        <span class="two"/>民事
-        <span class="three"/>经济
-        <span class="four"/>其他
-      </div>
     </div>
+    <div class="legend">
+      <span class="one"/>刑事
+      <span class="two"/>民事
+      <span class="three"/>经济
+      <span class="four"/>其他
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -84,12 +84,10 @@ onMounted(() => {
       &.three { background: #1CDB7C }
       &.four { background: #8D70F8}
     }
-
-
   }
 
   .chart {
-    position: relative;
+    //position: relative;
     display: flex;
     > .main {
       flex: 1;

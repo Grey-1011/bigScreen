@@ -41,9 +41,7 @@
         </div>
         <div class="bordered 作案手段 row3">
           <h2>作案手段分析</h2>
-          <div class="charts">
-            <Chart14/>
-          </div>
+          <Chart14/>
         </div>
       </section>
     </main>
