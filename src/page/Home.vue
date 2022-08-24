@@ -24,7 +24,27 @@
           </div>
         </div>
       </section>
-      <section class="section5 bordered">
+      <section class="section5">
+        <div class="bordered 案发类型 row1">
+          <h2>兰州市案发类型统计</h2>
+          <div class="charts">
+            <Chart10/>
+            <Chart11/>
+          </div>
+        </div>
+        <div class="bordered 案发街道 row2">
+          <h2>案发街道统计</h2>
+          <div class="charts">
+            <Chart12/>
+            <Chart13/>
+          </div>
+        </div>
+        <div class="bordered 作案手段 row3">
+          <h2>作案手段分析</h2>
+          <div class="charts">
+            <Chart14/>
+          </div>
+        </div>
       </section>
     </main>
     <footer></footer>
@@ -42,6 +62,9 @@ import Chart6 from '../components/Chart6.vue';
 import Chart7 from '../components/Chart7.vue';
 import Chart8 from '../components/Chart8.vue';
 import Chart9 from '../components/Chart9.vue';
+import Chart10 from '../components/Chart10.vue';
+import Chart11 from '../components/Chart11.vue';
+
 </script>
 
 <style lang="scss">
