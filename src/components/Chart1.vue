@@ -11,16 +11,43 @@ import * as echarts from 'echarts';
 import {px} from '../shared/px';
 import {baseEchartOptions} from '../shared/base-echart-options';
 
-
 const divRef = ref()
-onMounted(()=>{ // 挂载之后拿到  .chart 的 div
-  console.log(divRef.value)
-  const myChart = echarts.init(divRef.value);
+const myChart = ref()
 
-  myChart.setOption({
+const data = [
+  { name:'城关区',num:10},
+  { name: '七里河区',num:20},
+  { name: '西周区',num: 36},
+  { name: '安宁区',num:41},
+  { name:'红谷区',num:15},
+  {name: '永登区', num:26},
+  {name: '皋兰区', num:37},
+  {name: '榆中区', num:18},
+  {name: '兰州新区', num:29}
+]
+
+onMounted(()=>{
+  setInterval(()=>{
+    const newData = [
+      { name:'城关区',num:Math.random()*10},
+      { name: '七里河区',num:20},
+      { name: '西周区',num: Math.random()*20},
+      { name: '安宁区',num:41},
+      { name:'红谷区',num:Math.random()*30},
+      {name: '永登区', num:26},
+      {name: '皋兰区', num:Math.random()*40},
+      {name: '榆中区', num:18},
+      {name: '兰州新区', num:Math.random()*50}
+    ]
+    x(newData)
+  },300)
+})
+
+const x = (data: any[]) => {
+  myChart.value.setOption({
     ...baseEchartOptions,
     xAxis: {
-      data: ['城关区', '七里河区', '西固区', '安宁区', '红谷区', '永登区','皋兰区','榆中区', '兰州新区'],
+      data: data.map(i => i.name),
       axisTick: {show: false},
       axisLine: {
         show: true,
@@ -55,10 +82,15 @@ onMounted(()=>{ // 挂载之后拿到  .chart 的 div
       {
         name: '销量',
         type: 'bar',
-        data: [10, 20, 36, 41, 15, 26, 37, 18, 29]
+        data: data.map(i => i.num)
       }
     ]
   });
+}
+onMounted(()=>{ // 挂载之后拿到  .chart 的 div
+  // console.log(divRef.value)
+  myChart.value = echarts.init(divRef.value);
+  x(data)
 })
 </script>
 

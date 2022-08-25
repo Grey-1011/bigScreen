@@ -4,9 +4,9 @@
     <div class="wrapper">
       <div ref="divRef" class="chart"></div>
         <div class="legend bordered">
-          <span class="icon gs"/>甘肃籍
-          <span class="icon sc"/>四川籍
-          <span class="icon qh"/>青海籍
+          <span class="icon gs"/>甘岭籍
+          <span class="icon sc"/>边城籍
+          <span class="icon qh"/>寒国籍
       </div>
       <div class="notes">部分地区中国地图</div>
     </div>

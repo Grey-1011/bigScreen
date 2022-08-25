@@ -11,11 +11,27 @@ import * as echarts from 'echarts';
 import {createEchartsOptions} from '../shared/createEchartsOptions';
 import {px} from '../shared/px';
 
-
 const divRef = ref()
+const myChart = ref()
+
+const data = [0.15, 0.13, 0.11,
+  0.13, 0.14, 0.15,
+  0.16, 0.18, 0.21,
+  0.19, 0.17, 0.16,
+  0.15]
+
 onMounted(()=>{
-  const myChart = echarts.init(divRef.value)
-  myChart.setOption(createEchartsOptions({
+  setInterval(()=>{
+    const newData = [Math.random(), 0.13, 0.11,
+      0.13, 0.14, 0.15,
+      0.16, Math.random(), 0.21,
+      0.19, Math.random(), 0.16,
+      0.15]
+  x(newData)
+  },3000)
+})
+const x = (data: any) => {
+  myChart.value.setOption(createEchartsOptions({
     xAxis: {
       type: 'category',
       boundaryGap: false,
@@ -35,11 +51,7 @@ onMounted(()=>{
     },
     series: [
       {
-        data: [0.15, 0.13, 0.11,
-          0.13, 0.14, 0.15,
-          0.16, 0.18, 0.21,
-          0.19, 0.17, 0.16,
-          0.15],
+        data:data,
         type: 'line',
         smooth: true,
         symbol: 'circle',
@@ -57,6 +69,11 @@ onMounted(()=>{
       }
     ]
   }))
+}
+
+onMounted(()=>{
+  myChart.value = echarts.init(divRef.value)
+  x(data)
 })
 </script>
 

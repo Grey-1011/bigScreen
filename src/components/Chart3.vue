@@ -12,15 +12,38 @@ import {createEchartsOptions} from '../shared/createEchartsOptions';
 import {px} from '../shared/px';
 
 const divRef = ref()
+const myChart = ref()
+const data = [
+  {name: '盗窃',val: [0.01, 0.02, 0.09,0.11,0.12,0.23]},
+  {name: '抢劫',val:[0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,0.10]},
+  {name: '诈骗',val: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,0.10, 0.15]},
+  {name: '故意伤人',val:[0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,0.08,0.06,0.05]},
+  {name: '故意杀人',val: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,0.10,0.11,0.12,0.13]},
+  {name: '醉驾',val:[ 0.07, 0.08, 0.09,0.10,0.11,0.12,0.13, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06,]},
+]
+
 onMounted(()=>{
-  const myChart = echarts.init(divRef.value)
-  myChart.setOption(createEchartsOptions({
+  setInterval(()=>{
+    const newData = [
+      {name: '盗窃',val: [Math.random(), 0.02, 0.09,0.11,0.12,Math.random()]},
+      {name: '抢劫',val:[0.01, 0.02, 0.03, Math.random(), 0.05, 0.06, 0.07, 0.08, 0.09,Math.random()]},
+      {name: '诈骗',val: [0.01, Math.random(), 0.03, 0.04, 0.05, 0.06, Math.random(), 0.08, 0.09,0.10, Math.random()]},
+      {name: '故意伤人',val:[0.01, Math.random(), 0.03, 0.04, 0.05, 0.06, Math.random(), 0.08, 0.09,0.08,0.06,Math.random()]},
+      {name: '故意杀人',val: [0.01, 0.02, 0.03, Math.random(), 0.05, 0.06, 0.07, 0.08, 0.09,0.10,0.11,0.12,Math.random()]},
+      {name: '醉驾',val:[ 0.07, Math.random(), 0.09,0.10,0.11,0.12,0.13, 0.01,Math.random(), 0.03, 0.04, 0.05, Math.random()]},
+    ]
+    x(newData)
+  },3000)
+})
+
+const x = (data: any[]) => {
+  myChart.value.setOption(createEchartsOptions({
     legend: {
       bottom: px(10),
       textStyle: {color: 'white'},
       itemWidth: px(30),
       itemHeight: px(16),
-      data: ['盗窃','抢劫','诈骗','故意伤人','故意杀人','醉驾']
+      data: data.map(i => i.name)
     },
     grid: {
       x: px(20),
@@ -51,32 +74,32 @@ onMounted(()=>{
         name: '盗窃',
         type: 'line',
         stack: 'Total',
-        data: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.03]
+        data: data.find((i)=>{if(i.name === '盗窃') return i.val})?.val
       },
       {
         name: '醉驾',
         type: 'line',
-        data: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,0.10].reverse()
+        data: data.find((i)=>{if(i.name === '醉驾') return i.val})?.val
       },
       {
         name: '抢劫',
         type: 'line',
         stack: 'Total',
         connectNulls: true,
-        data: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,0.10, 0.15]
+        data: data.find((i)=>{if(i.name === '抢劫') return i.val})?.val
       },
       {
         name: '故意杀人',
         type: 'line',
         connectNulls: true,
         stack: 'Total',
-        data: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,0.08,0.06,0.05]
+        data: data.find((i)=>{if(i.name === '故意杀人') return i.val})?.val
       },
       {
         name: '故意伤人',
         type: 'line',
         stack: 'Total',
-        data: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,0.10,0.11,0.12,0.13].reverse()
+        data: data.find((i)=>{if(i.name === '故意伤人') return i.val})?.val
       }
     ].map(obj => ({
       ...obj,
@@ -85,6 +108,10 @@ onMounted(()=>{
       lineStyle: {width: px(1)}
     }))
   }))
+}
+onMounted(()=>{
+  myChart.value = echarts.init(divRef.value)
+  x(data)
 })
 </script>
 
